@@ -1,0 +1,51 @@
+
+<!-- 
+1) Diretivas são extensões da linguagem HTML quer permitem a implementação de novos comportamentos
+   de forma declarativa.
+
+2) Diretiva ngApp -> define as fronteiras da aplicação. O angular vai percorrer o documento HTML em 
+   busca das diretivas. Etão o angular vai compilar essas diretivas e executar o comportamento descrito
+   em cada uma delas.
+-->
+
+<html ng-app="listaTelefonica"><!--"listaTelefonica" é o nome do módulo principal da aplicação-->
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css">
+	<script src="lib/angular.js"></script>
+	<script>
+		angular.module("listaTelefonica", []); //o par de colchetes "[]" é um conjunto de módulo que queremos importar
+
+
+		angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($scope){
+			/*"$scope" é um objeto que faz a ponte, faz a mediação entre view e controller. Tanto view quanto controller tem esse objeto compartilhado */
+
+			$scope.app = "Lista Telefônica";
+		});
+		
+	</script>
+
+	<style>
+		.jumbotron{
+			width: 400px;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 20px;
+		}
+	</style>
+</head>	
+<body ng-controller="listaTelefonicaCtrl"><!--Diretiva "ng-controller" -> vincula um elemento da view ao Controller. Podemos aplicar "ng-controller" numa div, body, entre outros-->
+
+	
+
+	<div class="jumbotron">
+		<!--<h4 ng-bind="app"></h4>--><!--ngBind -> substitui um elemento por uma expressão. Podemos aplicar "ngBind" numa tag h4, spam-->
+	
+		{{app}}<!--As chaves duplas é uma interpolação e faz a mesma coisa que "ng-bind" -->
+	</div>
+		
+</body>
+</html>
