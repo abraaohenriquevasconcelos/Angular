@@ -1,11 +1,13 @@
 
 <!-- 
 1) Diretivas são extensões da linguagem HTML quer permitem a implementação de novos comportamentos
-   de forma declarativa.
+   de forma declarativa. O ng-app directiva diz AngularJS que este é o elemento raiz do aplicativo AngularJS.
+   Todas as aplicações AngularJS deve ter um elemento raiz.
 
 2) Diretiva ngApp -> define as fronteiras da aplicação. O angular vai percorrer o documento HTML em 
    busca das diretivas. Etão o angular vai compilar essas diretivas e executar o comportamento descrito
-   em cada uma delas.
+   em cada uma delas. ngApp é a responsável por determinar o escopo da aplicação nas páginas html. Quando Colocamos
+   essa diretiva na tag <html> será possível trabalhar com os recursos do framework em todo o escopo da nossa página.
 -->
 
 <html ng-app="listaTelefonica"><!--"listaTelefonica" é o nome do módulo principal da aplicação-->
@@ -16,7 +18,8 @@
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css">
 	<script src="lib/angular.js"></script>
 	<script>
-		angular.module("listaTelefonica", []); //o par de colchetes "[]" é um conjunto de módulo que queremos importar
+		//No código JS, criamos um módulo chamado "listaTelefonica". Lá na tag <html> referenciamos o módulo "listaTelefônica" através da tag "ng-app", ou seja, vinculamos um módulo a o a página html
+		angular.module("listaTelefonica", []); //o par de colchetes "[]" significa outros módulos que o nosso módulo terá dependênica.
 
 
 		angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($scope){
